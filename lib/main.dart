@@ -14,7 +14,48 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(),
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lista'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      body: ListView(
+        children: [
+          Container(
+            color: Colors.blue,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(10),
+            child: const Text('Jakiś tekst'),
+          ),
+          Container(
+            color: Colors.blue,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(10),
+            child: const Text('Jakiś tekst'),
+          ),
+          Container(
+            color: Colors.blue,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(10),
+            child: const Text('Jakiś tekst'),
+          ),
+        ],
+      ),
     );
   }
 }
