@@ -35,27 +35,31 @@ class HomePage extends StatelessWidget {
         child: const Icon(Icons.add),
       ),
       body: ListView(
-        children: [
-          Container(
-            color: Colors.blue,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.all(10),
-            child: const Text('Jakiś tekst'),
-          ),
-          Container(
-            color: Colors.blue,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.all(10),
-            child: const Text('Jakiś tekst'),
-          ),
-          Container(
-            color: Colors.blue,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.all(10),
-            child: const Text('Jakiś tekst'),
-          ),
+        children: const [
+          CategoryWidget('Kategoria 1'),
+          CategoryWidget('Kategoria 2'),
+          CategoryWidget('Kategoria 3'),
         ],
       ),
+    );
+  }
+}
+
+class CategoryWidget extends StatelessWidget {
+  const CategoryWidget(
+    this.title, {
+    super.key,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(10),
+      child: Text(title),
     );
   }
 }
