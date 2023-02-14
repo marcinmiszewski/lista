@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "327562841894",
+    "project_id": "lista-e3dae",
+    "storage_bucket": "lista-e3dae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327562841894:android:77ec68322823961f217be7",
+        "android_client_info": {
+          "package_name": "com.marcinmiszewski.lista"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327562841894-378dausj0gvehu524eemtg3aaibmpnpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDMkxlikybZYNT2WdusCdYOqgJ1FZi2B4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327562841894-378dausj0gvehu524eemtg3aaibmpnpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
