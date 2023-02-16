@@ -22,15 +22,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({
+  HomePage({
     super.key,
   });
+
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +42,12 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance
-              .collection('categories')
-              .add({'title': 'Kategoria'});
+          FirebaseFirestore.instance.collection('categories').add(
+            {
+              'title': controller.text,
+            },
+          );
+          controller.clear();
         },
         child: const Icon(Icons.add),
       ),
@@ -76,6 +81,9 @@ class HomePage extends StatelessWidget {
                     ),
                   )
                 ],
+                TextField(
+                  controller: controller,
+                ),
               ],
             );
           }),
