@@ -57,9 +57,9 @@ class HomePage extends StatelessWidget {
 
             return ListView(
               children: [
-                CategoryWidget(documents[0]['title']),
-                CategoryWidget(documents[1]['title']),
-                CategoryWidget('Kategoria 3'),
+                for (final document in documents) ...[
+                  CategoryWidget(document['title']),
+                ],
               ],
             );
           }),
