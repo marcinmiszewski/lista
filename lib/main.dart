@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -38,7 +39,11 @@ class HomePage extends StatelessWidget {
         title: const Text('Lista'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          FirebaseFirestore.instance
+              .collection('categories')
+              .add({'title': 'Kategoria'});
+        },
         child: const Icon(Icons.add),
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -58,7 +63,18 @@ class HomePage extends StatelessWidget {
             return ListView(
               children: [
                 for (final document in documents) ...[
-                  CategoryWidget(document['title']),
+                  Dismissible(
+                    key: ValueKey(document.id),
+                    onDismissed: (_) {
+                      FirebaseFirestore.instance
+                          .collection('categories')
+                          .doc(document.id)
+                          .delete();
+                    },
+                    child: CategoryWidget(
+                      document['title'],
+                    ),
+                  )
                 ],
               ],
             );
@@ -81,7 +97,13 @@ class CategoryWidget extends StatelessWidget {
       color: Colors.blue,
       padding: const EdgeInsets.all(20),
       margin: const EdgeInsets.all(10),
-      child: Text(title),
+      child: Text(
+        title,
+        style: GoogleFonts.lobster(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+      ),
     );
   }
 }
